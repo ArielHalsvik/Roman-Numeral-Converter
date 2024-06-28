@@ -1,39 +1,41 @@
-function romanNumeralConverter(number) {
-  if (!number || isNaN(number)) {
-    console.log("Please enter a valid number");
+function romanNumeralConverter() {
+  const number = document.getElementById("number").value;
+  const output = document.getElementById("output");
+
+  if (!number) {
+    output.innerHTML = "Please enter a valid number";
     return;
   } else if (number < 1) {
-    console.log("Please enter a number greater than or equal to 1");
+    output.innerHTML = "Please enter a number greater than or equal to 1";
     return;
   } else if (number >= 4000) {
-    console.log("Please enter a number greater than or equal to 1");
+    output.innerHTML = "Please enter a number less than or equal to 3999";
     return;
   }
-  let numberString = number.toString();
 
   let firstNumber;
   let secondNumber;
   let thirdNumber;
   let fourthNumber;
 
-  switch (numberString.length) {
+  switch (number.length) {
     case 1:
-      firstNumber = parseInt(numberString[0]);
+      firstNumber = parseInt(number[0]);
       break;
     case 2:
-      firstNumber = parseInt(numberString[1]);
-      secondNumber = parseInt((numberString[0] += 0));
+      firstNumber = parseInt(number[1]);
+      secondNumber = parseInt((number[0] += 0));
       break;
     case 3:
-      firstNumber = parseInt(numberString[2]);
-      secondNumber = parseInt((numberString[1] += "0"));
-      thirdNumber = parseInt((numberString[0] += "00"));
+      firstNumber = parseInt(number[2]);
+      secondNumber = parseInt((number[1] += "0"));
+      thirdNumber = parseInt((number[0] += "00"));
       break;
     case 4:
-      firstNumber = parseInt(numberString[3]);
-      secondNumber = parseInt((numberString[2] += "0"));
-      thirdNumber = parseInt((numberString[1] += "00"));
-      fourthNumber = parseInt((numberString[0] += "000"));
+      firstNumber = parseInt(number[3]);
+      secondNumber = parseInt((number[2] += "0"));
+      thirdNumber = parseInt((number[1] += "00"));
+      fourthNumber = parseInt((number[0] += "000"));
       break;
   }
 
@@ -175,7 +177,7 @@ function romanCalculator(number1, number2, number3, number4) {
     finalRomanNumber.push(romanNumber4);
   }
 
-  console.log(finalRomanNumber.reverse().join(""));
-}
+  const convertedNumber = finalRomanNumber.reverse().join("");
 
-romanNumeralConverter(3999);
+  output.innerHTML = convertedNumber;
+}

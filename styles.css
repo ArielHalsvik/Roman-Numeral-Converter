@@ -1,0 +1,23 @@
+body {
+  background-color: #333467;
+}
+
+h1,
+label {
+  color: white;
+}
+
+input,
+button {
+  width: 200px;
+  height: 50px;
+  background-color: #1b1c46;
+  color: white;
+}
+
+#box {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px white solid;
+}
